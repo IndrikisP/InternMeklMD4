@@ -1,0 +1,584 @@
+<html>
+    <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&display=swap" rel="stylesheet">
+        <style>
+                      
+            .gallery {
+              width: 500px;
+              height: 300px;
+              border: 2px solid #d499b9;;
+              border-radius:2px;
+              margin: 0 auto;
+              position: relative;
+              overflow: hidden;
+            }
+            
+            .gallery img {
+              display: none;
+              max-width: 100%;
+              max-height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+            .gallery .bubbles {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+            }
+                  .gallery .bubble {
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  background-color: #d499b9;
+                  margin: 0 5px;
+              }
+
+              .gallery .bubble.active {
+                  background-color: #d64e98;
+              }
+            
+            .gallery img.active {
+              display: block;
+            }
+            
+            .controls {
+              margin-top: 10px;
+            }
+            
+            .controls button {
+              margin-right: 5px;
+            }
+            .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+          }
+
+          .controls button {
+              background-color: #97a97c; /* Green background */
+              border: none;
+              color: white; /* White text */
+              padding: 10px 20px; /* Padding */
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+          }
+          .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+          .controls button:hover {
+              background-color: #87986a; /* Darker green background on hover */
+          }
+          html * {
+            font-family: 'Manrope', sans-serif;
+
+          }
+                .navbar {
+        background-color: #cfe1b9;
+        padding: 10px;
+      }
+
+      .navbar-menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar-menu li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .language-toggle {
+        margin-left: auto;
+      }
+
+      .toggle-button {
+        border: none;
+        background: none;
+        color: #333;
+        cursor: pointer;
+      }
+
+      .toggle-button:focus {
+        outline: none;
+      }
+
+      .toggle-button:hover {
+        text-decoration: underline;
+      }
+          .content {
+      max-width: 500px;
+      margin: auto;
+    }
+        .graph {
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            margin-top: 50px;
+        }
+
+        .node {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background-color: #887f96;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        div.node:hover {
+          background-color: #45a049;
+        }
+        .paragraph {
+            max-height: 77px;
+            min-height: 77px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expanded {
+            max-height: none;
+        }
+
+        .read-more {
+            text-decoration: underline;
+            cursor: pointer;
+            display: none;
+        }
+        .maxSizeContent {
+            max-height: 130px;
+            min-height: 130px;
+        }
+        .color-content{
+          background-color: #e9f5db;
+        }
+        hr{
+              border: 1px solid #87986a;
+            }
+              .card-content {
+                border-radius:5px;
+                transition: all .6s ease;
+                -webkit-transition: all .6s ease;
+
+              }
+              div.card-content:hover{
+                background-color: #daf5b9;
+                transition: all .6s ease;
+                -webkit-transition: all .6s ease;
+              }
+            
+              .song-list {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e9f5db;
+    font-family: Arial, sans-serif;
+}
+
+.song-list h1 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.song-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.song {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #daf5b9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.song .title {
+    font-weight: bold;
+}
+
+.song .artist {
+    color: #666;
+}
+
+.song:hover {
+    background-color: #e1f5c9;
+}
+a {
+  text-decoration: none;
+}
+.footer {
+    background-color: #cfe1b9;;
+    color: #87986a;;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer-links li {
+    margin: 0 10px;
+}
+
+.footer-links li a {
+    color: #87986a;;
+    text-decoration: none;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+}
+          </style>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          
+    </head>
+<body>
+  <div class="color-content">
+  <nav class="navbar">
+    <ul class="navbar-menu">
+      <li class="language-toggle">
+        <button class="toggle-button" id="toggleButton">Latviešu</button>
+      </li>
+    </ul>
+  </nav>
+  <div class="content">
+    <br>
+    <h1 style="text-align: center;" class="toTranslate">Mans ceļš uz Latvijas universitāti</h1>
+    <br>
+    <p class="toTranslate">
+      Tīmekļa lapa satur ceļa aprakstu no manām mājām Dalbē līdz Latvijas Universitātes ēkai Raiņa bulvārī.
+    </p>
+    <br>
+    
+    <div class="gallery">
+        <img src="IMG_0028.JPG" alt="image1" width="690" height="400" class="active">
+        <img src="IMG_0042.JPG" alt="image2" width="700" height="400">
+        <img src="IMG_0094.JPG" alt="image4" width="700" height="400">
+        <img src="IMG_0096.JPG" alt="image5" width="700" height="400">
+        <img src="IMG_0089.JPG" alt="image3" width="700" height="400">
+        <img src="IMG_0634_2.JPG" alt="image6" width="700" height="400">
+
+        <div class="bubbles">
+          <div class="bubble active"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+        </div>
+    </div>
+    
+    <div class="maxSizeContent">
+    <div class="paragraph" id="myParagraph">
+    <p id="imageDescription"><b>Dalbes lielais ceļš.</b> Tas ved ārā uz šoseju un uz staciju</p>
+    </div>
+    <p class="read-more" id="readMoreButton" onclick="toggleContent()">Lasīt vairāk</p>
+    </div>
+      <div class="controls">
+        <button onclick="prevImage()"><</button>
+        <button onclick="nextImage()">></button>
+      </div>
+      <!--
+        To do:
+        2) Implement song list
+        3) Add paragraphs
+        5) krāsas
+        6) language toggle
+      -->
+      
+
+      <br>
+      <br>
+      
+      <div class="card-content">
+        <hr>
+      <h2 style="text-align: center;" class="toTranslate">Vilcienu pieturas</h2>
+      <br>
+        <div class="graph">
+          <div class="node" id="node1"></div>
+          <div class="node" id="node2"></div>
+          <div class="node" id="node3"></div>
+          <div class="node" id="node4"></div>
+          <div class="node" id="node5"></div>
+          <div class="node" id="node6"></div>
+          <div class="node" id="node7"></div>
+          <div class="node" id="node8"></div>
+          <div class="node" id="node9"></div>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <p id="vilcienaPietura" style="text-align: center;"><b>Dalbe</b></p>
+      
+      <br>
+      </div>
+      <img src="IMG_0090_2.JPG" alt="image6" width="500" height="300">
+      <br>
+      <br>
+      <br>
+      <hr>
+      <h4 style="text-align: center;" class="toTranslate">Parasti braucot vilcienā klausos mūziku</h4>
+        <div class="song-list">
+          <br>
+          <ul>
+              <li class="song">
+                  <span class="title">On me</span>
+                  <span class="artist">Sainte</span>
+              </li>
+              <li class="song">
+                  <span class="title">You Are a Memory</span>
+                  <span class="artist">Message To Bears</span>
+              </li>
+              <li class="song">
+                  <span class="title">Holiday</span>
+                  <span class="artist">Ocean Alley</span>
+              </li>
+              <li class="song">
+                <span class="title">Cool&Calm</span>
+                <span class="artist">Sticky Fingers</span>
+            </li>
+            <li class="song">
+              <span class="title">Naive</span>
+              <span class="artist">The Kooks</span>
+          </li>
+          <li class="song">
+            <span class="title">Cha Cha Cha</span>
+            <span class="artist">Käärijä</span>
+        </li>
+          </ul>
+      </div>
+        </div>
+        <footer class="footer">
+          <div class="footer-content">
+              <p class="toTranslate">2023 Tīmekļa dizaina projekta mājaslapa. Autors: Indriķis Paiders</p>
+              <ul class="footer-links">
+                  <li><a href="https://github.com/IndrikisP/InternMeklMD4" target="_blank">Github</a></li>
+              </ul>
+          </div>
+      </footer>
+      </div>
+      <script>
+        var images = document.querySelectorAll('.gallery img');
+        var bubbles = document.querySelectorAll('.gallery .bubble');
+        var currentIndex = 0;
+        var divs = document.querySelectorAll('.node');
+        var stacijas = [
+        "Dalbe", "Olaine", "Jaunolaine", "Baloži", "Tīraine", "Turība", "Atgāzene", "Torņakalns", "Rīga"
+        ];
+        var translationsEnglish = [
+          "My road to the University of Latvia",
+          "Website contains the description of going from my Home in Dalbe to the University of Latvia building on Raiņa boulevard. ",
+          "Train stops",
+          "Usually when going with train I'm listening to music",
+          "2023 Web design project page. Author: Indriķis Paiders"
+        ];
+        var translationsLatvian = [
+          "Mans ceļš uz Latvijas universitāti",
+          "Tīmekļa lapa satur ceļa aprakstu no manām mājām Dalbē līdz Latvijas Universitātes ēkai Raiņa bulvārī.",
+          "Vilcienu pieturas",
+          "Parasti braucot ar vilcienu klausos mūziku",
+          "2023 Tīmekļa tehnoloģiju projekta mājaslapa. Autors: Indriķis Paiders"
+
+        ];
+        var arr1 = [
+            "Dalbes lielais ceļš.",
+            "Pļava.",
+            "Pansionāts.",
+            "Ūdenstornis.",
+            "Vilciena stacija Dalbe:",
+            "Universitāte."
+          ];
+          var arr2 = [
+            " Tas ved ārā uz šoseju un uz staciju",
+            " Tālumā redzami divi ozoli, labajā pa vasarām parasti izveidojas iršu pūznis. Savukārt kreisajā vairākas reizes ir iespēris zibens.",
+            " Kādreiz manu ceļu uz Dalbes staciju arī greznoja tikai pa pusei pabeigts un noteikti vismaz pa pusei jau sagruvis milzīgs pansionāts. Tas nekad nav ticis izmantots kā pansionāts. Bet jauniešu klejojumiem, grafiti mākslai un Airsoft entuziastiem tas ir bijis pietiekami labs. Izdzīvojis 2 lielus ugunsgrēkus, tas tomēr pavisam nesen tika nojaukts.",
+            " Stiepjas pāri visiem kokiem, LMT tur augšā šobrīd ir uzstādījuši savu tehniku.",
+            " Braucot no Dalbes biļetes ir jāpērk vilcienā, neatminos laiku, kad kase būtu strādājusi. Vilciena brauciens līdz Rīgai aizņem 29-30 minūtes. Vilciens ir precīzs un uzticams, tomēr ne par 100%. Bieži braucot ir sanācis novērot nelielu kavēšanos. Man pat ir sanācis atgadījums, kad braucot no mājām uz eksāmenu vilciens pa ceļam noplīst. ",
+            " Aiziet no Rīgas stacijas līdz Raiņa bulvāra ēkai aizņem ~8 minūtes."
+          ];
+          var arr1English = [
+            "Dalbes road.",
+            "Field.",
+            "Nursing room.",
+            "Water tower.",
+            "Train station Dalbe:",
+            "University."
+          ];
+          var arr2English = [
+            " It leads to the highway and to the train station",
+            " You can see 2 oak trees in the distance, right one usually hosts a hornets nest in the summer. Left one has been hit by lightning multiple times",
+            " My trip to Dalbe station used to be accompanied by a half finished and definitely half destroyed nursing home. It has never been used as a nursing home. But it has been useful for teenager adventures, grafiti practive and Airsoft enthusiasts. It has survived 2 major fires and recently it was finally destroyed. ",
+            " Higher than any tree nearby, LMT has recently set up their gear on top of it",
+            " Going from Dalbe you need to buy the tickets in the train as the station does not sell them. The trip to Riga takes 29 to 30 minutes. Train is precise and reliable, but not for 100%. As a frequent rider I have experienced it being late. I have also had the train brake down when going to university for an exam. ",
+            " Walking to the university building from the Riga train station takes around 8 minutes."
+          ];
+
+        function handleMouseOver() {
+            // Perform an action when the mouse is over the div
+            var parag = document.getElementById("vilcienaPietura");
+            var index = String(this.id).charAt(4);
+            var stacija = stacijas[index-1];
+            parag.innerHTML = `<strong>${stacija}</strong>`;
+            var nodes = document.querySelectorAll('.graph div');
+            for (var i = 0; i < nodes.length; i++) {
+              nodes[i].style.backgroundColor = '#887f96';
+            }
+            this.style.backgroundColor = '#7b6a98';
+        }
+
+        function handleMouseOut() {
+            // Reset the style and content when the mouse is not over the div
+            //this.style.backgroundColor = '#887f96';
+        }
+        function toggleContent() {
+            var paragraph = document.getElementById('myParagraph');
+            var button = document.getElementById('readMoreButton');
+            var toggleButton = document.getElementById("toggleButton");
+
+            if (paragraph.classList.contains('expanded')) {
+                paragraph.classList.remove('expanded');
+                if(toggleButton.textContent == "Latviešu"){
+                  button.textContent = 'Lasīt vairāk';
+                }
+                else{
+                  button.textContent = 'Read more';
+                }
+            } else {
+                paragraph.classList.add('expanded');
+                if(toggleButton.textContent == "Latviešu"){
+                  button.textContent = 'Samazināt';
+                }
+                else{
+                  button.textContent = 'Collapse';
+                }
+            }
+        }
+        divs.forEach(function(div) {
+            div.addEventListener('mouseover', handleMouseOver);
+            div.addEventListener('mouseout', handleMouseOut);
+        });
+        function showImage(index) {
+          if (index < 0 || index >= images.length) {
+            return;
+          }
+          
+          for (var i = 0; i < images.length; i++) {
+            images[i].classList.remove('active');
+            bubbles[i].classList.remove('active');
+          }
+          bubbles[index].classList.add('active');  
+          images[index].classList.add('active');
+          currentIndex = index;
+        }
+    
+        function prevImage() {
+          var newIndex = currentIndex - 1;
+          if (newIndex < 0) {
+            newIndex = images.length - 1;
+          }
+          var parag = document.getElementById("readMoreButton");
+          if(newIndex == 0 || newIndex == 3 || newIndex == 1 || newIndex == 5){
+            parag.style.display = "none";
+          }
+          else{
+            parag.style.display = "inline-block";
+          }
+          changeDescription(newIndex);
+          showImage(newIndex);
+        }
+        function switchLanguages(lang){
+          var imageDesc = document.getElementById("imageDescription");
+          if(lang == "EN"){
+            var translateableContent = document.querySelectorAll('.toTranslate');
+            for (var i = 0; i < translateableContent.length; i++) {
+              translateableContent[i].innerHTML = translationsEnglish[i];
+            }
+            var boldText = arr1English[currentIndex];
+            var plainText = arr2English[currentIndex];
+            imageDesc.innerHTML = `<strong>${boldText}</strong>${plainText}`;
+          }else {
+            var boldText = arr1[currentIndex];
+            var plainText = arr2[currentIndex];
+            imageDesc.innerHTML = `<strong>${boldText}</strong>${plainText}`;
+            var translateableContent = document.querySelectorAll('.toTranslate');
+            for (var i = 0; i < translateableContent.length; i++) {
+              translateableContent[i].innerHTML = translationsLatvian[i];
+            }
+          }
+          
+
+        }
+    
+        function nextImage() {
+          var newIndex = currentIndex + 1;
+          if (newIndex >= images.length) {
+            newIndex = 0;
+          }
+          var parag = document.getElementById("readMoreButton");
+          if(newIndex == 0 || newIndex == 3 || newIndex == 1 || newIndex == 5){
+            parag.style.display = "none";
+          }
+          else{
+            parag.style.display = "inline-block";
+          }
+          changeDescription(newIndex);
+          showImage(newIndex);
+        }
+        function changeDescription(index) {
+          var parag = document.getElementById("imageDescription");
+          var toggleButton = document.getElementById("toggleButton");
+          if(toggleButton.textContent == "Latviešu"){
+            var boldText = arr1[index];
+            var plainText = arr2[index];
+          }
+          else{
+            var boldText = arr1English[index];
+            var plainText = arr2English[index];
+          }
+          
+          parag.innerHTML = `<strong>${boldText}</strong>${plainText}`;
+        }
+        var toggleButton = document.getElementById("toggleButton");
+        var isEnglish = false;
+        toggleButton.addEventListener("click", function() {
+      
+          if (isEnglish) {
+            toggleButton.textContent = "Latviešu"; 
+            switchLanguages("LV");
+          } else {
+            toggleButton.textContent = "English"; // Example: change button text back to English
+            switchLanguages("EN");
+          }
+          isEnglish = !isEnglish; // Toggle the language flag
+        });
+          
+      </script>
+</body>
+</html>
