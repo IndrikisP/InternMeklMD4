@@ -1,5 +1,6 @@
 <html>
     <head>
+      <link rel="icon" type="image/x-icon" href="new/tornis.png">
       <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&display=swap" rel="stylesheet">
@@ -132,8 +133,8 @@
 
         .node {
             position: relative;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             background-color: #887f96;
             border-radius: 50%;
             z-index: 1;
@@ -173,11 +174,6 @@
                 -webkit-transition: all .6s ease;
 
               }
-              div.card-content:hover{
-                background-color: #daf5b9;
-                transition: all .6s ease;
-                -webkit-transition: all .6s ease;
-              }
               .card-content2 {
                 border-radius:30px;
                 transition: all .6s ease;
@@ -190,6 +186,13 @@
                 background-color: #daf5b9;
                 transition: all .6s ease;
                 -webkit-transition: all .6s ease;
+              }
+              .card-content3{
+                border-radius:30px;
+                max-width: 800px;
+                margin: auto;
+                background-image: url('new/tornis2.png');
+                border: 2px solid #d499b9;;
               }
             
               .song-list {
@@ -285,10 +288,35 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  transition: transform 0.4s ease;
+  transform-origin: 50% 50%;
 }
 .gallery2 img:nth-child(3n+2) {
   margin-top: 20px 0; 
 }
+.gallery2 img:hover{
+    transform: scale(1.02);
+    width: 30%;}
+
+    .gallery4 {
+      width: 500px;
+              height: 560px;
+              border: 2px solid #d499b9;;
+              border-radius:2px;
+              margin: 0 auto;
+              position: relative;
+              overflow: hidden;
+            }
+            
+            .gallery4 img {
+              max-width: 100%;
+              max-height: 100%;
+              width: 500px;
+              height: 560pxpx;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
           </style>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
           
@@ -333,7 +361,7 @@ a {
     <div class="paragraph" id="myParagraph">
     <p id="imageDescription"><b>Dalbes lielais ceļš.</b> Tas ved ārā uz šoseju un uz staciju</p>
     </div>
-    <p class="read-more" id="readMoreButton" onclick="toggleContent()">Lasīt vairāk</p>
+    <p class="read-more toTranslate" id="readMoreButton" onclick="toggleContent()">Lasīt vairāk</p>
     </div>
       <div class="controls">
         <button onclick="prevImage()"><</button>
@@ -424,21 +452,62 @@ a {
           <img src="new/IMG_2891.JPG" alt="Image 9">
         </div>
         <br>
+        <hr>
         <br>
-        <div class="card-content2">
+        <div class="card-content3">
         <div class="content">
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        </div>
+        <br>
+        <br>
+        <div class="content">
         <h4 style="text-align: center;" class="toTranslate">Neliels apraksts</h4>
         <br>
-        <p style="text-align:center" class="toTranslate">
+        <p class="toTranslate">
           Nokļūt no mājām līdz universitātei man parasti aizņem nedaudz virs stundas. Parasti ceļa laikā cenšos nesteigties un atpūsties. Braucot sastrēgumstundās vilcienā var sanākt spiešanās. Dzelzceļa sliedes iet paralēli Jelgavas šosejai, var skatīties pa logu un vērot kā mašīnas steidzās garām.
+        </p>
+        <p class="toTranslate">
           Vai skatīties uz mežiem un pļavām un pa retai reizei var arī redzētu kādu dzīvnieku. Parasti kādu stirnu, kura jau ir pieradusi pie vilciena regulārās skaņas. Jau esot Rīgā un braucot pāri dzelzceļa tiltam ir diezgan labs skats, var redzēt vecpilsētu, vanšu tiltu, televīzijas torni un daudz ko citu.
           Parasti vilcienu saraksts ir iekārtojies tā, ka vai nu sanākt ierasties pa agru vai arī tikpat kā jau kavēt.
         </p>
-        <br>
-        </div>
         </div>
         <br>
+        
+        <br>
+        <hr>
+        <br>
+        <h4 style="text-align:center;" class="toTranslate"><b>Mūsdienas</b></h4>
+        <br>
+        <div class="gallery4">
+          <img src="new/tramvajs.png" alt="Tramvajs">
+        </div>
+        <br>
+        <div class="content">
+          <p class="toTranslate">
+            Mūsdienās aizņemtākās nedēļās palieku Rīgā, Ķengaragā. Un braucu uz universitāti ar 7 tramvaju. Tā ietaupu laiku ceļā un arī ofiss nav pārāk tālu no mājām Rīgā, kas ir pluss.
+          </p>
+          </div>
         <br>
         <footer class="footer">
           <div class="footer-content">
@@ -460,21 +529,29 @@ a {
         var translationsEnglish = [
           "My road to the University of Latvia",
           "Website contains the description of going from my Home in Dalbe to the University of Latvia building on Raiņa boulevard. ",
+          "Read more",
           "Train stops",
           "Usually I am listening to music while on the train, for example",
           "Road scene gallery",
           "Small description",
-          "It takes me a little more than 1 hour to get from my home to university. Usually I try to not hurry and try to relax. The train is very full in rush hour. The train tracks go parallel to the highway that goes to Jelgava, you can watch cars passing by through the window. Also you can observe the forests and fields along the way and if you're lucky you might see an animal. Usually a deer, who is already used to the sound of train and highway. When you're in Riga and going over the bridge you can see some good scenery, like the old city, Vanšu bridge, TV tower and much more. The train schedule usually is arranged so I am either very early or almost late.",
+          "It takes me a little more than 1 hour to get from my home to university. Usually I try to not hurry and try to relax. The train is very full in rush hour. The train tracks go parallel to the highway that goes to Jelgava, you can watch cars passing by through the window.",
+          "Also you can observe the forests and fields along the way and if you're lucky you might see an animal. Usually a deer, who is already used to the sound of train and highway. When you're in Riga and going over the bridge you can see some good scenery, like the old city, Vanšu bridge, TV tower and much more. The train schedule usually is arranged so I am either very early or almost late.",
+          "Nowadays",
+          "Nowadays during busier weeks I stay in Rīga, Ķengarags. And I go to the university by tram number 7. I spend less time travelling and also my office is not too far away from my home in Riga.",
           "2023 Web design project page. Author: Indriķis Paiders"
         ];
         var translationsLatvian = [
           "Mans ceļš uz Latvijas universitāti",
           "Tīmekļa lapa satur ceļa aprakstu no manām mājām Dalbē līdz Latvijas Universitātes ēkai Raiņa bulvārī.",
+          "Lasīt vairāk",
           "Vilcienu pieturas",
           "Parasti braucot ar vilcienu klausos mūziku, piemēram",
           "Ceļa ainu galerija",
           "Neliels apraksts",
-          "Nokļūt no mājām līdz universitātei man parasti aizņem nedaudz virs stundas. Parasti ceļa laikā cenšos nesteigties un atpūsties. Braucot sastrēgumstundās vilcienā var sanākt spiešanās. Dzelzceļa sliedes iet paralēli Jelgavas šosejai, var skatīties pa logu un vērot kā mašīnas steidzās garām. Vai skatīties uz mežiem un pļavām un pa retai reizei var arī redzētu kādu dzīvnieku. Parasti kādu stirnu, kura jau ir pieradusi pie vilciena regulārās skaņas. Jau esot Rīgā un braucot pāri dzelzceļa tiltam ir diezgan labs skats, var redzēt vecpilsētu, vanšu tiltu, televīzijas torni un daudz ko citu. Parasti vilcienu saraksts ir iekārtojies tā, ka vai nu sanākt ierasties pa agru vai arī tikpat kā jau kavēt.",
+          "Nokļūt no mājām līdz universitātei man parasti aizņem nedaudz virs stundas. Parasti ceļa laikā cenšos nesteigties un atpūsties. Braucot sastrēgumstundās vilcienā var sanākt spiešanās. Dzelzceļa sliedes iet paralēli Jelgavas šosejai, var skatīties pa logu un vērot kā mašīnas steidzās garām.",
+          "Vai skatīties uz mežiem un pļavām un pa retai reizei var arī redzētu kādu dzīvnieku. Parasti kādu stirnu, kura jau ir pieradusi pie vilciena regulārās skaņas. Jau esot Rīgā un braucot pāri dzelzceļa tiltam ir diezgan labs skats, var redzēt vecpilsētu, vanšu tiltu, televīzijas torni un daudz ko citu. Parasti vilcienu saraksts ir iekārtojies tā, ka vai nu sanākt ierasties pa agru vai arī tikpat kā jau kavēt.",
+          "Mūsdienas",
+          "Mūsdienās aizņemtākās nedēļās palieku Rīgā, Ķengaragā. Un braucu uz universitāti ar 7 tramvaju. Tā ietaupu laiku ceļā un arī ofiss nav pārāk tālu no mājām Rīgā, kas ir pluss.",
           "2023 Tīmekļa tehnoloģiju projekta mājaslapa. Autors: Indriķis Paiders"
 
         ];
@@ -651,6 +728,17 @@ a {
           }
           isEnglish = !isEnglish;
         });
+        // const zoomImages = document.getElementsByClassName('zoomImage');
+
+        // Array.from(zoomImages).forEach((image) => {
+        //     image.addEventListener('mouseover', () => {
+        //       image.classList.add('zoomed');
+        //     });
+
+        //     image.addEventListener('mouseout', () => {
+        //       image.classList.remove('zoomed');
+        //     });
+        //   });
           
       </script>
 </body>
